@@ -1,22 +1,27 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';  // Pour le binding [(ngModel)]
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Pour animations Angular
-import { HttpClientModule } from '@angular/common/http'; // Pour les requêtes HTTP
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
-
 import { AppComponent } from './app.component';
-import { AuthComponent } from './auth/auth.component';
+import { AuthComponent } from './logup/auth.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { AnalysesComponent } from './analyses/analyses.component';
-import { GeneralDirectionComponent } from './general-direction/general-direction.component';
-import { DepartmentHeadsComponent } from './department-heads/department-heads.component';
-import { TechnicalManagersComponent } from './technical-managers/technical-managers.component';
-import { MedicalTeamsComponent } from './medical-teams/medical-teams.component';
+import { GeneralDirectionComponent } from './dashboards/general-direction/general-direction.component';
+import { DepartmentHeadsComponent } from './dashboards/department-heads/department-heads.component';
+import { TechnicalManagersComponent } from './dashboards/technical-managers/technical-managers.component';
+import { MedicalTeamsComponent } from './dashboards/medical-teams/medical-teams.component';
 
-import { AuthService } from './auth/auth.service'; // Assure-toi que le chemin est correct
+import { AuthService } from './logup/auth.service';
+import { KnnPredictComponent } from './knn-predict/knn-predict.component';
+import { RegressionPredictComponent } from './regression-predict/regression-predict.component';
+import { StatisticsComponent } from './dashboards/department-heads/statistics/statistics.component';
+import { StatisticsComponent1 } from './dashboards/medical-teams/statistics1/statistics.component';
+import { NlpComponent } from './nlp/nlp.component';
+import { DeepComponent } from'./deep/deep.component';
+
 
 @NgModule({
   declarations: [
@@ -24,11 +29,16 @@ import { AuthService } from './auth/auth.service'; // Assure-toi que le chemin e
     AuthComponent,
     HomeComponent,
     LoginComponent,
-    AnalysesComponent,
     GeneralDirectionComponent,
     DepartmentHeadsComponent,
     TechnicalManagersComponent,
-    MedicalTeamsComponent
+    MedicalTeamsComponent,
+    KnnPredictComponent,
+    RegressionPredictComponent,
+    StatisticsComponent,
+    StatisticsComponent1,
+    NlpComponent,
+    DeepComponent
   ],
   imports: [
     BrowserModule,
@@ -37,9 +47,7 @@ import { AuthService } from './auth/auth.service'; // Assure-toi que le chemin e
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [
-    AuthService
-  ],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

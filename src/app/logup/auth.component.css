@@ -1,0 +1,312 @@
+body, .auth-bg {
+  background: #f6f8fb;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.auth-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.auth-container {
+  display: flex;
+  max-width: 1000px; /* réduit de 100px */
+  width: 100%;
+  background: #fff;
+  border-radius: 36px;
+  box-shadow: 0 8px 40px rgba(44, 62, 80, 0.10);
+  overflow: hidden;
+  min-height: 550px; /* réduit */
+}
+
+/* Partie gauche : bleue, ellipse à droite */
+.auth-left {
+  flex: 1;
+  max-width: 470px; /* réduit */
+  min-height: 550px; /* réduit */
+  padding: 0 40px; /* réduit */
+  background: linear-gradient(135deg, #205375 0%, #62c0e3 100%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-top-left-radius: 36px;
+  border-bottom-left-radius: 36px;
+  clip-path: ellipse(80% 100% at 0% 50%);
+  min-width: 340px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Logo en haut à gauche */
+.auth-left .logo {
+  position: absolute;
+  top: 24px;
+  left: 36px;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.auth-left .logo img {
+  height: 80px;
+  width: auto;
+}
+
+/* Titre "Welcome Back" décalé vers la gauche */
+.auth-left h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 18px;
+  max-width: 90%;
+  color: #fff;
+  letter-spacing: 1.2px;
+  word-break: break-word;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  left: -37.8px;
+  text-align: center;
+}
+
+/* Paragraphe centré */
+.auth-left p {
+  font-size: 1.25rem;
+  margin-bottom: 38px;
+  opacity: 0.96;
+  max-width: 360px;
+  color: #eaf7fb;
+  margin-left: auto;
+  margin-right: auto;
+  word-break: break-word;
+}
+
+/* Bouton SIGN IN centré */
+.sign-in-btn {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  border-radius: 40px;
+  padding: 12px 38px; /* réduit */
+  font-size: 1.1rem; /* réduit */
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  outline: none;
+  margin-bottom: 40px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 130px;
+  text-align: center;
+}
+
+.sign-in-btn:hover,
+.sign-in-btn:focus {
+  background: #fff;
+  color: #205375;
+}
+
+/* Partie droite */
+.auth-right {
+  flex: 2;
+  min-width: 400px;
+  max-width: calc(100% - 470px); /* ajusté */
+  padding: 48px 44px; /* réduit */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fff;
+  border-top-right-radius: 36px;
+  border-bottom-right-radius: 36px;
+  z-index: 2;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Formulaire centré et plus large */
+.auth-right form {
+  width: 100%;
+  max-width: 680px; /* plus large */
+  margin: 0 auto;
+}
+
+.auth-right h2 {
+  font-size: 2.3rem; /* réduit légèrement */
+  font-weight: bold;
+  margin-bottom: 24px;
+  color: #222;
+  width: 100%;
+}
+
+.social-signup {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 18px;
+  justify-content: center;
+  width: 100%;
+}
+
+.social-signup button {
+  background: #f5f7fa;
+  border: none;
+  border-radius: 14px;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  color: #205375;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 1px 2px rgba(44,62,80,0.04);
+  outline: none;
+}
+
+.social-signup button:hover,
+.social-signup button:focus {
+  background: #205375;
+  color: #fff;
+}
+
+.or-text {
+  text-align: center;
+  color: #888;
+  font-size: 1.07rem;
+  margin-bottom: 26px;
+  margin-top: 2px;
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 18px;
+  width: 100%;
+}
+
+/* Champs de formulaire encore plus larges */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 24px 28px; /* padding réduit */
+  border: none;
+  border-radius: 14px;
+  font-size: 1.2rem; /* taille de police réduite */
+  background: #f6f8fb;
+  color: #444;
+  margin-bottom: 0;
+  box-sizing: border-box;
+  transition: border 0.2s;
+  outline: none;
+}
+
+input[type="file"] {
+  background: transparent;
+  color: #444;
+  padding: 0;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border: 1.5px solid #205375;
+  outline: none;
+  background: #fff;
+  color: #222;
+}
+
+/* Bouton SIGN UP */
+.sign-up-btn {
+  width: 100%;
+  background: #205375;
+  color: #fff;
+  border: none;
+  padding: 22px 0; /* padding réduit */
+  border-radius: 40px;
+  font-weight: bold;
+  font-size: 1.3rem; /* réduit */
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 10px;
+  letter-spacing: 1px;
+  box-shadow: none;
+}
+
+.sign-up-btn:hover {
+  background: #17445c;
+}
+
+/* Messages d’alerte */
+.alert-message {
+  margin: 10px 0;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.alert-message.success {
+  color: #205375;
+}
+
+.alert-message.error {
+  color: #d32f2f;
+}
+
+/* Prévisualisation de l’image */
+.image-preview img {
+  max-width: 80px;
+  max-height: 80px;
+  border-radius: 10px;
+  margin-top: 10px;
+  background: #fff;
+  padding: 2px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .auth-container {
+    flex-direction: column;
+    border-radius: 24px;
+    min-width: 320px;
+  }
+  .auth-left, .auth-right {
+    border-radius: 0;
+    min-width: unset;
+    padding: 36px 16px;
+    clip-path: none;
+    min-height: unset;
+    max-width: 100% !important;
+    text-align: center;
+    align-items: center;
+  }
+  .auth-left .logo {
+    margin-top: 0;
+    position: static;
+    justify-content: center;
+  }
+  .auth-left h2, .auth-left p {
+    margin-left: 0;
+    left: 0;
+    text-align: center;
+  }
+  .sign-in-btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .auth-right form {
+    max-width: 100%;
+  }
+}

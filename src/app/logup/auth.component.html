@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<div class="auth-bg">
+  <div class="auth-container">
+    <!-- Partie gauche -->
+    <div class="auth-left">
+      <div class="logo">
+      <img src="assets/logo.png" alt="Logo" class="logo" />
+
+      </div>
+      <h2>Welcome Back</h2>
+      <p>Enter your personal details to use all site features</p>
+      <button class="sign-in-btn" type="button" (click)="goToLogin()">SIGN IN</button>
+    </div>
+
+    <!-- Partie droite -->
+    <div class="auth-right">
+      <h2>Create Account</h2>
+      <div class="social-signup">
+      <button type="button" title="Home" (click)="goToHome()"><i class="fa fa-home"></i></button>
+      <button title="Google" type="button" (click)="openGoogle()"><i class="fab fa-google"></i></button>
+      <button title="Facebook" type="button" (click)="openFacebook()"><i class="fab fa-facebook-f"></i></button>
+      <button type="button" title="LinkedIn"><i class="fab fa-linkedin-in"></i></button>
+      </div>
+      <div class="or-text">or use your email for registration</div>
+      <!-- Messages -->
+      <div *ngIf="successMessage" class="alert-message success">
+        {{ successMessage }}
+      </div>
+      <div *ngIf="formError" class="alert-message error">
+        {{ formError }}
+      </div>
+      <!-- Formulaire -->
+      <form (ngSubmit)="enregistre()">
+        <div class="form-group">
+          <input type="text" placeholder="Nom complet" [(ngModel)]="user.FullName" name="FullName" required />
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Adresse e-mail" [(ngModel)]="user.email" name="email" required />
+        </div>
+        <div class="form-group">
+          <input type="password" placeholder="Mot de passe" [(ngModel)]="user.password" name="password" required minlength="6" />
+        </div>
+        <div class="form-group">
+          <select [(ngModel)]="user.type" name="type" required>
+            <option value="" disabled selected>Type d'utilisateur</option>
+            <option value="general-direction">Direction Générale</option>
+            <option value="department-heads">Chefs de Département</option>
+            <option value="technical-managers">Responsables Techniques</option>
+            <option value="medical-teams">Équipes Médicales</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <input type="file" (change)="onFileSelected($event)" accept="image/png, image/jpeg" />
+        </div>
+        <div *ngIf="previewUrl" class="image-preview">
+          <img [src]="previewUrl" alt="Aperçu de l'image" />
+        </div>
+        <button type="submit" class="sign-up-btn">SIGN UP</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,9 +1,55 @@
 {
-  "General Direction": [],
+  "user_General_Direction": [
+    {
+      "id": 1746980638599,
+      "FullName": "karray yasmin",
+      "email": "yasmin@example.com",
+      "password": "123456",
+      "type": "general-direction",
+      "image": ""
+    },
+    {
+      "id": 1746980759111,
+      "FullName": "omar",
+      "email": "omar.exemple@gamil.com",
+      "password": "123456",
+      "type": "general-direction",
+      "image": ""
+    }
+  ],
+  "user_Department_Heads": [
+    {
+      "id": 1747019473944,
+      "FullName": "omar",
+      "email": "omar.exemple1@gamil.com",
+      "password": "123456",
+      "type": "department-heads",
+      "image": ""
+    }
+  ],
+  "user_Technical_Managers": [
+    {
+      "id": 1747019556737,
+      "FullName": "abdelhak",
+      "email": "abdelhak.iheb@esprit.tn",
+      "password": "123456",
+      "type": "technical-managers",
+      "image": " "
+    }
+  ],
+  "user_Medical_Teams": [
+    {
+      "id": 1746980793778,
+      "FullName": "yasmin",
+      "email": "yasmin.karray@esprit.tn",
+      "password": "123456",
+      "type": "medical-teams",
+      "image": ""
+    }
+  ],
+  "/api": {
+    "target": "http://localhost:5003",
+    "secure": false
+  }
 
-  "Department Heads": [],
-
-  "Technical Managers": [],
-
-  "Medical Teams": []
 }

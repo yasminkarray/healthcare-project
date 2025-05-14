@@ -1,6 +1,7 @@
 <div class="login-container">
   <div class="login-left">
     <h2>Sign In</h2>
+
     <div class="social-buttons">
       <button type="button" title="Home" (click)="goToHome()"><i class="fa fa-home"></i></button>
       <button title="Google" type="button" (click)="openGoogle()"><i class="fab fa-google"></i></button>
@@ -11,48 +12,26 @@
     <div class="or-text">or use your email and password</div>
 
     <form (ngSubmit)="loginUser()" #form="ngForm" novalidate>
-      <input
-        class="login-input"
-        type="email"
-        placeholder="Email"
-        required
-        [(ngModel)]="user.email"
-        name="email"
-        #email="ngModel"
-        autocomplete="username"
-      />
-      <div class="error" *ngIf="email.invalid && email.touched" style="color: red; font-size: 0.9rem;">
+      <input class="login-input" type="email" placeholder="Email"
+        required [(ngModel)]="user.email" name="email" #email="ngModel" autocomplete="username" />
+      <div class="error" *ngIf="email.invalid && email.touched" style="color: red;">
         Please enter a valid email.
       </div>
 
-      <input
-        class="login-input"
-        type="password"
-        placeholder="Password"
-        required
-        [(ngModel)]="user.password"
-        name="password"
-        #password="ngModel"
-        autocomplete="current-password"
-      />
-      <div class="error" *ngIf="password.invalid && password.touched" style="color: red; font-size: 0.9rem;">
+      <input class="login-input" type="password" placeholder="Password"
+        required [(ngModel)]="user.password" name="password" #password="ngModel" autocomplete="current-password" />
+      <div class="error" *ngIf="password.invalid && password.touched" style="color: red;">
         Password is required.
       </div>
 
-      <select
-        class="login-input"
-        required
-        [(ngModel)]="user.type"
-        name="type"
-        #type="ngModel"
-      >
+      <select class="login-input" required [(ngModel)]="user.type" name="type" #type="ngModel">
         <option value="" disabled selected>User Type</option>
         <option value="General Direction">General Direction</option>
         <option value="Department Heads">Department Heads</option>
         <option value="Technical Managers">Technical Managers</option>
         <option value="Medical Teams">Medical Teams</option>
       </select>
-      <div class="error" *ngIf="type.invalid && type.touched" style="color: red; font-size: 0.9rem;">
+      <div class="error" *ngIf="type.invalid && type.touched" style="color: red;">
         Please select a user type.
       </div>
 
@@ -62,6 +41,10 @@
 
       <button class="login-btn" type="submit" [disabled]="form.invalid">SIGN IN</button>
     </form>
+
+    <div *ngIf="message" style="margin-top: 10px; color: red;">
+      {{ message }}
+    </div>
   </div>
 
   <div class="login-right">

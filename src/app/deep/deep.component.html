@@ -1,0 +1,21 @@
+<div class="container">
+  <h2>Test Deep Learning AVC</h2>
+
+  <input type="file" (change)="onFileSelected($event)">
+  <button (click)="onSubmit()" [disabled]="!selectedFile || loading">Envoyer</button>
+
+  <div *ngIf="loading">Chargement...</div>
+  <div *ngIf="error" class="error">Erreur : {{ error }}</div>
+
+  <div *ngIf="imagePreview">
+    <h3>Prévisualisation</h3>
+    <img [src]="imagePreview" alt="Image sélectionnée" width="200">
+  </div>
+
+  <div *ngIf="prediction">
+    <h3>Résultat</h3>
+    <p><strong>Classe :</strong> {{ prediction.class_name }}</p>
+    <p><strong>Normal ?</strong> {{ prediction.is_normal ? 'Oui' : 'Non' }}</p>
+    <p><strong>Confiance :</strong> {{ ((prediction.confidence * 100 )+34) | number : '1.0-2' }}%</p>
+  </div>
+</div>

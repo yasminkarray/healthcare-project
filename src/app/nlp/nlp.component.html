@@ -1,0 +1,10 @@
+<div>
+  <h2>Sentiment Analysis</h2>
+  <textarea [(ngModel)]="feedbackText" rows="5" placeholder="Tapez votre feedback ici..." style="width: 100%;"></textarea>
+  <button (click)="onSubmit()">Analyser</button>
+
+  <div *ngIf="result">
+    <h3>Result:</h3>
+    <pre>{{ result | json }}</pre>
+  </div>
+</div>

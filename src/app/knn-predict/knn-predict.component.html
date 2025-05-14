@@ -1,0 +1,28 @@
+<h2>Satisfaction Impact Prediction </h2>
+
+<!-- Short note -->
+<p><em>Note: 
+1. Enter the number of days since the ticket was opened. 
+2. Choose complaint type: 1 for "Delay", 2 for "Error". 
+3. Choose status: 1 for "Resolved", 2 for "Pending". 
+Output: Satisfaction impact score from 1 to 5.</em></p>
+
+<form (submit)="predictKNN()">
+  <!-- Feature 1: Number of days -->
+  <label for="feature1">Number of Days:</label>
+  <input type="number" [(ngModel)]="feature1" name="feature1" placeholder="Feature 1" required />
+
+  <!-- Feature 2: Complaint Type -->
+  <label for="feature2">Complaint Type:</label>
+  <input type="number" [(ngModel)]="feature2" name="feature2" placeholder="Feature 2" required />
+
+  <!-- Feature 3: Complaint Status -->
+  <label for="feature3">Complaint Status:</label>
+  <input type="number" [(ngModel)]="feature3" name="feature3" placeholder="Feature 3" required />
+
+  <!-- Predict Button -->
+  <button type="submit">Predict</button>
+</form>
+
+<!-- Displaying Prediction -->
+<p *ngIf="prediction"><strong>Prediction:</strong> {{ prediction }}</p>

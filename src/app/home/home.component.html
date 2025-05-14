@@ -1,26 +1,22 @@
-<!-- En-tête (Header) -->
 <header class="top-bar">
   <div class="container">
     <div class="logo">
       <img src="assets/logo.png" alt="Hospital Logo" />
     </div>
 
-    <!-- Barre de recherche -->
     <div class="search-bar">
-      <input type="text" placeholder="Search..." [(ngModel)]="searchQuery" />
+      <input type="text" placeholder="Search..." />
       <button><i class="fa fa-search"></i></button>
     </div>
 
-    <!-- Navigation -->
     <nav class="nav-links">
-      <a href="#" (click)="scrollToSection('home'); $event.preventDefault()" class="nav-link">Home</a>
-      <a href="#" (click)="scrollToSection('about'); $event.preventDefault()" class="nav-link">About Us</a>
-      <a href="#" (click)="scrollToSection('contact'); $event.preventDefault()" class="nav-link">Contact</a>
+      <a href="#" class="nav-link">Home</a>
+      <a href="#" class="nav-link">About Us</a>
+      <a href="#" class="nav-link">Contact</a>
     </nav>
   </div>
 </header>
 
-<!-- Bannière principale -->
 <div class="banner" id="home">
   <div class="banner-content">
     <h1>
@@ -34,40 +30,53 @@
       <i class="fa fa-ambulance"></i>
     </div>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-    <button class="btn-main" (click)="goToAuth()">LOG IN</button>
+  <button class="btn-main" (click)="goToAuth()">LOG IN</button>
   </div>
 </div>
 
-<!-- Section Présentation -->
-<div class="presentation" id="presentation">
-  <p>
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-  </p>
-</div>
+<section id="about" class="about-presentation-section">
+  <div class="presentation">
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+    </p>
+  </div>
 
-<!-- Section About Us -->
-<div class="about" id="about">
-  <div class="about-card">
-    <img src="assets/what_we_are.png" alt="Service 1" />
-    <h3>What We Are</h3>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
+  <div class="about">
+    <div class="about-card">
+      <img src="assets/what_we_are.png" alt="Service 1" />
+      <h3>What We Are</h3>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
+    </div>
+    <div class="about-card">
+      <img src="assets/our_vision.jpg" alt="Service 2" />
+      <h3>Our Vision</h3>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
+    </div>
+    <div class="about-card">
+      <img src="assets/our-team.png" alt="Service 3" />
+      <h3>Our Team</h3>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
+    </div>
   </div>
-  <div class="about-card">
-    <img src="assets\our_vision.jpg" alt="Service 2" />
-    <h3>Our Vision</h3>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
-  </div>
-  <div class="about-card">
-    <img src="assets/our-team.png" alt="Service 3" />
-    <h3>Our Team</h3>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
-  </div>
-</div>
+</section>
 
-<!-- Footer avec section Contact -->
 <footer class="site-footer" id="contact">
   <div class="footer-container">
-    <div class="footer-col">
+    <div class="footer-col follow-us">
+      <h4>Follow Us</h4>
+      <div class="social-buttons">
+        <button title="Google" type="button">
+          <i class="fab fa-google"></i>
+        </button>
+        <button title="Facebook" type="button">
+          <i class="fab fa-facebook-f"></i>
+        </button>
+        <button title="LinkedIn" type="button">
+          <i class="fab fa-linkedin-in"></i>
+        </button>
+      </div>
+    </div>
+    <div class="footer-col contact-us">
       <h4>Contact Us</h4>
       <form class="footer-contact-form">
         <label for="email">Email:</label>
@@ -78,20 +87,6 @@
 
         <button type="submit">Send</button>
       </form>
-    </div>
-    <div class="footer-col">
-      <h4>Follow Us</h4>
-      <div class="social-buttons">
-        <button title="Google" type="button" (click)="openGoogle()">
-          <i class="fab fa-google"></i>
-        </button>
-        <button title="Facebook" type="button" (click)="openFacebook()">
-          <i class="fab fa-facebook-f"></i>
-        </button>
-        <button title="LinkedIn" type="button" (click)="openLinkedIn()">
-          <i class="fab fa-linkedin-in"></i>
-        </button>
-      </div>
     </div>
   </div>
   <div class="footer-bottom">

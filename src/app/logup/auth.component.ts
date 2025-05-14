@@ -17,13 +17,7 @@ interface User {
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent {
-  user: User = {
-    FullName: '',
-    email: '',
-    password: '',
-    type: ''
-  };
-
+  user: User = { FullName: '', email: '', password: '', type: '' };
   previewUrl: string | ArrayBuffer | null = null;
   imageError: string = '';
   imageFile: File | null = null;
@@ -32,6 +26,7 @@ export class AuthComponent {
 
   constructor(private authService: AuthService, private router: Router) {}
 
+  // ✅ Lorsque l'utilisateur sélectionne une image
   onFileSelected(event: any): void {
     this.imageError = '';
     if (event.target.files && event.target.files[0]) {
@@ -72,6 +67,7 @@ export class AuthComponent {
     return password.length >= 6;
   }
 
+  // ✅ L'utilisateur clique sur "Enregistrer"
   enregistre(): void {
     this.formError = '';
     this.successMessage = '';
@@ -114,47 +110,61 @@ export class AuthComponent {
     reader.readAsDataURL(this.imageFile);
   }
 
+  // ✅ Sauvegarde dans la bonne collection
   saveUser(imageBase64: string): void {
     const newUser: User = {
       id: Date.now(),
       FullName: this.user.FullName,
       email: this.user.email,
-      password: this.user.password, // Attention : en production, il faut hasher le mot de passe
+      password: this.user.password,
       type: this.user.type,
       image: imageBase64
     };
 
-    this.authService.getUsersByType(this.user.type).subscribe(users => {
-      if (users.some(u => u.email === newUser.email)) {
-        this.formError = 'Cet email est déjà utilisé.';
-        return;
-      }
-
-      this.authService.addUser(this.user.type, newUser).subscribe({
-        next: () => {
-          this.successMessage = 'Inscription réussie !';
-          this.formError = '';
-          this.resetForm();
-          setTimeout(() => this.router.navigate(['/login']), 2000);
-        },
-        error: () => {
-          this.formError = 'Erreur lors de l\'enregistrement. Veuillez réessayer.';
+    this.authService.getUsersByType(this.user.type).subscribe({
+      next: (users) => {
+        const alreadyExists = users.some(u => u.email === newUser.email);
+        if (alreadyExists) {
+          this.formError = 'Cet email est déjà utilisé.';
+          return;
         }
-      });
-    }, () => {
-      this.formError = 'Erreur lors de la récupération des utilisateurs.';
+
+        this.authService.addUser(this.user.type, newUser).subscribe({
+          next: () => {
+            this.successMessage = 'Inscription réussie ! Redirection...';
+            this.formError = '';
+            this.resetForm();
+            setTimeout(() => this.router.navigate(['/login']), 2000);
+          },
+          error: () => {
+            this.formError = 'Erreur lors de l\'enregistrement. Veuillez réessayer.';
+          }
+        });
+      },
+      error: () => {
+        this.formError = 'Erreur lors de la récupération des utilisateurs.';
+      }
     });
   }
 
   resetForm(): void {
-    this.user = {
-      FullName: '',
-      email: '',
-      password: '',
-      type: ''
-    };
+    this.user = { FullName: '', email: '', password: '', type: '' };
     this.imageFile = null;
     this.previewUrl = null;
     this.imageError = '';
+  }
+  goToLogin() {
+    this.router.navigate(['/login']);
+  }
+  goToHome() {
+    this.router.navigate(['/home']);
+  }
+
+  openGoogle() {
+    window.open('https://www.google.com', '_blank');
+  }
+
+  openFacebook() {
+    window.open('https://www.facebook.com/profile.php?id=61575817990036', '_blank');
   }
 }

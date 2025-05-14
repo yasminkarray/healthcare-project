@@ -1,0 +1,59 @@
+<div class="dashboard-container">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <nav>
+      <ul>
+        <li class="nav-btn">
+          <i class="fas fa-user"></i>
+          <span>Profil</span>
+        </li>
+        <!-- Dashboard with routerLink -->
+        <li class="nav-btn">
+          <a routerLink="/department-heads">
+            <i class="fas fa-chart-line"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-btn active">
+          <a routerLink="/department-heads/statistics">
+            <i class="fas fa-chart-pie"></i>
+            <span>Statistiques</span>
+          </a>
+        </li>
+        <li class="nav-btn">
+          <a href="/home">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Déconnexion</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Main content -->
+  <div class="main-content">
+    <div class="statistics-container">
+      <h2>Statistiques de prédiction</h2>
+
+      <div class="model-section">
+        <h3>Prédiction KNN</h3>
+        <app-knn-predict></app-knn-predict>
+      </div>
+
+      <div class="model-section">
+        <h3>Régression</h3>
+        <app-regression-predict></app-regression-predict>
+      </div>
+
+      <div class="model-section">
+        <h3>DeepLearning</h3>
+        <app-deep></app-deep>
+      </div>
+
+      <div class="model-section">
+        <h3>NLP</h3>
+        <app-nlp></app-nlp>
+      </div>
+    </div>
+  </div>
+</div>

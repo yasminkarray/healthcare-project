@@ -1,0 +1,17 @@
+<h2> Resolution Duration Prediction</h2>
+<form (submit)="predictRegression()">
+  <div class="label-input-wrapper">
+    <label for="regFeature1">Satisfaction Impact (1-5):</label>
+    <input type="number" [(ngModel)]="regFeature1" name="regFeature1" required />
+  </div>
+  <div class="label-input-wrapper">
+    <label for="regFeature2">Complaint Type (1 = Delay, 2 = Error):</label>
+    <input type="number" [(ngModel)]="regFeature2" name="regFeature2" required />
+  </div>
+  <div class="label-input-wrapper">
+    <label for="regFeature3">Status (1 = Resolved, 2 = Pending):</label>
+    <input type="number" [(ngModel)]="regFeature3" name="regFeature3" required />
+  </div>
+  <button type="submit">Predict</button>
+</form>
+<p *ngIf="prediction"><strong>Prediction (days):</strong> {{ prediction | number:'1.0-0' }}</p>

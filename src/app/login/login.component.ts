@@ -14,7 +14,7 @@ export class LoginComponent {
     type: ''
   };
 
-  message: string = ''; // ✅ Pour afficher le message succès/erreur
+  message: string = '';
 
   constructor(
     private router: Router,
@@ -23,38 +23,43 @@ export class LoginComponent {
 
   loginUser() {
     const { email, password, type } = this.user;
+    console.log('Login attempt:', this.user); // Log pour vérifier les données envoyées
 
     if (!email || !password || !type) {
-      this.message = 'Veuillez remplir tous les champs.';
+      this.message = '❗ Tous les champs sont requis.';
       return;
     }
-    else
-    {
-      this.loginService.loginUser(email, password, type).subscribe(users => {
+
+    this.loginService.loginUser(email, password, type).subscribe({
+      next: (users) => {
+        console.log('Users received:', users); // Log pour voir les utilisateurs retournés
         if (users.length > 0) {
-          // ✅ Connexion réussie
-          this.message = '✔ Connexion réussie !';
-          switch (type) {
-            case 'General Direction':
-              this.router.navigate(['/general-direction']);
-              break;
-            case 'Department Heads':
-              this.router.navigate(['/department-heads']);
-              break;
-            case 'Technical Managers':
-              this.router.navigate(['/technical-managers']);
-              break;
-            case 'Medical Teams':
-              this.router.navigate(['/medical-teams']);
-              break;
-          }
+          this.message = '';
+          this.redirectToDashboard(type);
         } else {
-          // ❌ Mauvais identifiants
-          this.message = '❌ Email, mot de passe ou type incorrect.';
+          this.message = '❌ Email, mot de passe ou type invalide.';
         }
-        }, error => {
-            this.message = 'Erreur de connexion au serveur.';
-        });
+      },
+      error: (err) => {
+        console.error('Erreur de connexion:', err); // Log pour voir l'erreur du serveur
+        this.message = '❌ Erreur de connexion au serveur.';
+      }
+    });
+  }
+
+  redirectToDashboard(type: string) {
+    const routes: { [key: string]: string } = {
+      'General Direction': '/general-direction',
+      'Department Heads': '/department-heads',
+      'Technical Managers': '/technical-managers',
+      'Medical Teams': '/medical-teams'
+    };
+
+    const route = routes[type];
+    if (route) {
+      this.router.navigate([route]);
+    } else {
+      this.message = '❌ Type d’utilisateur non reconnu.';
     }
   }
 
@@ -71,6 +76,6 @@ export class LoginComponent {
   }
 
   openFacebook() {
-    window.open('https://www.facebook.com', '_blank');
+    window.open('https://www.facebook.com/profile.php?id=61575817990036', '_blank');
   }
 }

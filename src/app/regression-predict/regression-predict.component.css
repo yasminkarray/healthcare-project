@@ -1,0 +1,84 @@
+/* General body styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+/* Container for the form */
+form {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;  /* Adjusted width for better proportion */
+  box-sizing: border-box;
+}
+
+/* Title style */
+h2 {
+  text-align: center;
+  font-size: 2.8rem;  /* Increased font size */
+  margin-bottom: 30px;
+  color: #2980b9;
+}
+
+/* Labels for each input field */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;  /* Space between label and input */
+  color: #2980b9;
+}
+
+/* Input fields */
+input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px; /* More space between fields */
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  box-sizing: border-box;
+}
+
+input[type="number"]:focus {
+  border-color: #2980b9;
+  outline: none;
+}
+
+/* Submit button */
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #2980b9;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #2471a3;
+}
+
+/* Displaying Prediction */
+p {
+  text-align: center;
+  margin-top: 20px;
+}
+
+p strong {
+  font-size: 1.3rem;
+  color: #2980b9;
+}
